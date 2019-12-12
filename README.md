@@ -39,7 +39,13 @@ The file `src/modules/mock_data.json` itself should not be modified. Consider th
 
 ## Extras
 - [ ] Optimize data lookup (e.g memoize selectors or restructure redux state)
-- [ ] Add your own feature to Stack Showdown!
+- [x] Add your own feature to Stack Showdown!
+	- Hiding inactive campaigns
+	- Showing percentage of progress
+	- Turn progress bar green when goal has been reached
+	- Added the ability to add funds to use account
+	- Disable user name and icon on top right with balance
+	- Added message to contributions
 
 ## Submitting
 
