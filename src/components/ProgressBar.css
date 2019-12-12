@@ -1,5 +1,4 @@
 .ProgressBar {
-  height: 1rem;
   border-radius: 0.5rem;
   margin-top: 1rem;
   width: 100%;
@@ -7,7 +6,15 @@
 }
 
 .ProgressBar-progress {
-  height: 1rem;
   background: rgb(248, 5, 125);
   border-radius: 0.5rem;
+}
+
+.ProgressBar-complete {
+  background: rgb(0, 255, 0);
+  border-radius: 0.5rem;
+}
+
+.ProgressBar-percent {
+  height: 1rem;
 }
