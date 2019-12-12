@@ -43,8 +43,8 @@ The file `src/modules/mock_data.json` itself should not be modified. Consider th
 	- Hiding inactive campaigns
 	- Showing percentage of progress
 	- Turn progress bar green when goal has been reached
-	- Added the ability to add funds to use account
-	- Disable user name and icon on top right with balance
+	- Added the ability to add funds to user account
+	- Display user name and icon on top right with balance
 	- Added message to contributions
 
 ## Submitting
