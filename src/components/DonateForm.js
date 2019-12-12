@@ -1,16 +1,23 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { ADD_CONTRIBUTION } from '../modules'
+import { ADD_CONTRIBUTION, ADD_FUNDS } from '../modules'
 
 const DonateForm = ({ campaign, dispatch }) => {
 	const [amount, setAmount] = useState('')
 	const [message, setMessage] = useState('')
 	const [error, setError] = useState(null)
+	const [option, setOption] = useState("donate")
 
 	const resetForm = () => {
 		setAmount('')
 		setMessage('')
 		setError(null)
+	}
+
+	const optionInputProps = {
+		className: 'Select-option',
+		value: option,
+		onChange: ({ target: { value } }) => setOption(value)
 	}
 
 	const amountInputProps = {
@@ -37,16 +44,27 @@ const DonateForm = ({ campaign, dispatch }) => {
 			} else {
 				//this took a while for me to figure out,
 				// never used reacjs redux or anything before.
-				dispatch({
-					type: ADD_CONTRIBUTION,
-					payload: {
-						setError: setError,
-						resetForm: resetForm,
-						amount: parseFloat(parseFloat(amount).toFixed(2)), //make sure it is a number and only 2 decimal places
-						campaignId: campaign.id,
-						message: message
-					}
-				})
+				if(option === "donate") {
+					dispatch({
+						type: ADD_CONTRIBUTION,
+						payload: {
+							setError: setError,
+							resetForm: resetForm,
+							amount: parseFloat(parseFloat(amount).toFixed(2)), //make sure it is a number and only 2 decimal places
+							campaignId: campaign.id,
+							message: message
+						}
+					})
+				} else {
+					dispatch({
+						type: ADD_FUNDS,
+						payload: {
+							setError: setError,
+							resetForm: resetForm,
+							amount: parseFloat(parseFloat(amount).toFixed(2)), //make sure it is a number and only 2 decimal places
+						}
+					})
+				}
 			}
 		}
 	}
@@ -56,11 +74,32 @@ const DonateForm = ({ campaign, dispatch }) => {
 	)
 	
 	return <div className="CampaignInfo-donate">
-		<h2>Donate to { campaign.name }</h2>
+		<select { ...optionInputProps }>
+			<option value="donate">Donate</option>
+			<option value="add_funds">Add Funds</option>
+		</select>
+		{ option === "donate" ?
+			<h2>Donate to { campaign.name }</h2>
+			:
+			<h2>Add funds to your Account</h2>
+		}
+		
 		<input type="number" { ...amountInputProps } />
-		<input maxLength="40" { ...messageInputProps } />
+		{ option === "donate" ?
+			<input maxLength="40" { ...messageInputProps } />
+			:
+			<div></div>
+		}
+		
 		{ errorMessage }
-		<button { ...buttonProps }>Donate</button>
+		
+		<button { ...buttonProps }>
+		{ option === "donate" ?
+			"Donate"
+			:
+			"Add Funds"
+		}
+		</button>
 	</div>
 }
 

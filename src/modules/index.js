@@ -4,6 +4,7 @@ const initialState = { ...sampleData }
 
 export const MERGE_SESSION = 'app/MERGE_SESSION'
 export const ADD_CONTRIBUTION = 'app/ADD'
+export const ADD_FUNDS = "app/ADD_FUNDS"
 
 //- Redux
 export const app = (state = initialState, action) => {
@@ -49,6 +50,22 @@ export const app = (state = initialState, action) => {
 
 			//updating the users balance
 			state.session.user.balance -= payload.amount
+
+			return { ...state, session, state}
+		}
+
+		case ADD_FUNDS: {
+			const session = { ...state.session, ...payload }
+
+			if(payload.amount > 500) {
+				payload.setError("You can only add 500 dollars at one time.")
+				return { ...state, session }
+			}
+			//reset error message if any
+			payload.resetForm()
+
+			//updating the users balance
+			state.session.user.balance += payload.amount
 
 			return { ...state, session, state}
 		}
