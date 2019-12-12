@@ -42,7 +42,7 @@ const DonateForm = ({ campaign, dispatch }) => {
 					payload: {
 						setError: setError,
 						resetForm: resetForm,
-						amount: parseFloat(amount), //make sure it is a number
+						amount: parseFloat(parseFloat(amount).toFixed(2)), //make sure it is a number and only 2 decimal places
 						campaignId: campaign.id,
 						message: message
 					}
