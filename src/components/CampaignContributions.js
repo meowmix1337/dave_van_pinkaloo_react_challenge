@@ -32,7 +32,8 @@ function Contributions({ contributions, users }) {
 
     //if we have user data, then we can set the name and image
     if(userData) {
-      userName = userData && userData.first_name && userData.last_name
+      userName = userData.first_name && userData.last_name ? 
+        userData.first_name + " " + userData.last_name : userData.first_name
       image = userData.image
     }
       
