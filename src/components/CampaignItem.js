@@ -6,7 +6,7 @@ import ProgressBar from './ProgressBar'
 import { getCampaignContributionsTotal } from '../modules'
 
 function CampaignItem({ campaign, totalRaised, active, onClick }) {
-  const className = ClassNames('Campaign', { active })
+  const className = ClassNames(!campaign.active ? "Campaign-inactive" : "Campaign", { active })
   const divProps = { className, onClick }
 
   let progress = totalRaised / campaign.goal; 
@@ -16,6 +16,10 @@ function CampaignItem({ campaign, totalRaised, active, onClick }) {
   }
   
   return <div {...divProps}>
+    {!campaign.active ? <div className="Campaign-inactive-name">Inactive</div> : 
+      ""
+    }
+    
     <div className="Campaign-logo">
       <div className="Campaign-image" style={{backgroundImage: `url('${ campaign.image }')`}} />
     </div>

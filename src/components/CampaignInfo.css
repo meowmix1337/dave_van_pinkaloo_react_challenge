@@ -56,6 +56,15 @@
 	box-sizing: border-box;
 }
 
+.Campaign-inactive-name {
+	color: red;
+	font-weight: bold;
+}
+
+.Campaign-inactive {
+	display: none;
+}
+
 .CampaignInfo-donate input:focus {
 	outline: none;
 	border-color: rgb(249, 4, 125);
