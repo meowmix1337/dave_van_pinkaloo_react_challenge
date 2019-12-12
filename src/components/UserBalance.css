@@ -1,0 +1,26 @@
+.UserBalance {
+	background: white;
+	color: black;
+	padding: 0.75rem 1.5rem;
+	border-radius: 4px;
+	text-align: center;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	line-height: 1;
+}
+
+.UserBalance-amount {
+	color: rgb(248, 5, 126);
+	font-weight: bold;
+	font-size: 1.25em;
+}
+
+.UserBalance label {
+	font-size: 0.85em;
+	text-transform: uppercase;
+	color: rgb(120,120,120);
+	margin: 0;
+	padding: 0;
+	margin-left: 0.5rem;
+}

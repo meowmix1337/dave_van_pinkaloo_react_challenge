@@ -1,0 +1,74 @@
+.App {
+  text-align: center;
+  background-color: #282c34;
+  min-height: 100vh;
+  padding-bottom: 3rem;
+}
+.UserImage {
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+}
+
+.App-header {
+  text-align: left;
+  padding: 2rem 3rem;
+  padding-bottom: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: white;
+}
+
+.App-header h1 {
+  margin: 0;
+  padding: 0;
+  margin-left: 1rem;
+  font-weight: 300;
+}
+
+.Campaigns {
+  display: flex;
+  flex-direction: row;
+  /*background: linear-gradient(180deg, rgb(237, 205, 217), rgb(238, 179, 201));*/
+  padding: 2rem 3rem;
+  padding-right: 2rem;
+}
+
+.Campaign {
+  margin-right: 1rem;
+  flex: 1;
+  background: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+.Campaign.active {
+  box-shadow: 0px 0px 2px 3px rgb(249, 4, 125);
+}
+
+.Campaign-name {
+  font-weight: bold;
+  /*padding-bottom: 1rem;*/
+}
+
+.Campaign-image {
+  min-width: 120px;
+  padding-bottom: 100%;
+  width: 100%;
+  /*width: 80%;*/
+  background: white;
+  /*border-radius: 10px;*/
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.Campaign-logo {
+  /*width: 100%;*/
+  padding: 1rem;
+}
