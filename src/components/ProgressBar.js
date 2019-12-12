@@ -9,7 +9,7 @@ function ProgressBar({ progress }) {
       <div className={ (progress >= 1.0 ? "ProgressBar-complete": "ProgressBar-progress") } style={{ width }}>
         
         { progress >= 1.0
-          ? "Complete!"
+          ? "Goal Reached!"
           : Numeral(progress).format('0%')
         }
       </div>
